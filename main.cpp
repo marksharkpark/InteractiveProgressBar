@@ -11,7 +11,7 @@ using namespace std;
 /**
  * Purpose: A struct that is used and shared between threads in order to create 
  * an interactive progress bar, depending on the data - currentStatus & TerminationValue.
- * We pass this struct and initialize the data in order for the same data to be 
+ * Pass this struct and initialize the data in order for the same data to be 
  * manipulated/looked at during threads. 
  */
 typedef struct {
@@ -38,10 +38,10 @@ size_t getFileSize(const char* filename) {
  * struct data that is used during our wordCount call (main thread) in order to accurate
  * output the correct number of - / + onto the console to imitate a working progress bar.
  * Since the data are shared and is being looked at throughout the thread,
- * we divide current (amount of chars read in so far) by the termination value
+ * divide current (amount of chars read in so far) by the termination value
  * and multiple it by the number of +/- signs - in order to get a percentage of
- * the file we have read so far.
- * Based on this percentage, we wrote some logic that would help output the correct
+ * the file read so far.
+ * Based on this percentage, some logic would help output the correct
  * number of -/+ signs while ensuring which signs are to be outputted at a specific moment.  
  */
 void * progress_monitor(void * prog) {
@@ -85,7 +85,7 @@ void * progress_monitor(void * prog) {
  * thread to be able to retrieve the data to print out the corresponding +/- signs.
  * wordCount counts the number of chars, which is set to progstat->CurrentStatus,
  * and number of words.
- * We check for special cases such as if there is a double space to ensure we retrieve
+ * Ceck for special cases such as if there is a double space to ensure we retrieve
  * an accurate word count.
  */ 
 long wordCount(char* fileName) {
